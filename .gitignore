@@ -1,10 +1,9 @@
 
 # Created by https://www.gitignore.io/api/matlab,python
 # Edit at https://www.gitignore.io/?templates=matlab,python
-
+.pdf
 ### Custom ###
-data.csv
-data.xls
+
 
 ### MATLAB ###
 # Windows default autosave extension
@@ -142,3 +141,5 @@ dmypy.json
 .pyre/
 
 # End of https://www.gitignore.io/api/matlab,python
+literature/Li et al, 1998 (MetTransB) [A Computational Model for the Prediction of Steel Hardenability].pdf
+literature/Saunders et al.pdf

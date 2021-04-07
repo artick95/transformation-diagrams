@@ -17,7 +17,7 @@ def FahrenheitToCelsius(TF):
     """
     Converts temperature in Fahrenheit to Celsius
     """
-    return (TF - 32.)*5./9.
+    return (TF - 32.) * 5. / 9.
 
 
 def FC(**comp):
@@ -31,7 +31,8 @@ def FC(**comp):
     Ni = comp.get('Ni', 0)
     Cr = comp.get('Cr', 0)
     Mo = comp.get('Mo', 0)
-    return np.exp((1.0 + 6.31*C + 1.78*Mn + 0.31*Si + 1.12*Ni + 2.7*Cr + 4.06*Mo))
+    return np.exp((1.0 + 6.31 * C + 1.78 * Mn + 0.31 * Si + 1.12 * Ni +
+                   2.7 * Cr + 4.06 * Mo))
 
 
 def PC(**comp):
@@ -45,7 +46,8 @@ def PC(**comp):
     Ni = comp.get('Ni', 0)
     Cr = comp.get('Cr', 0)
     Mo = comp.get('Mo', 0)
-    return np.exp(-4.25 + 4.12*C + 4.36*Mn + 0.44*Si + 1.71*Ni + 3.33*Cr + 5.19*np.sqrt(Mo))
+    return np.exp(-4.25 + 4.12 * C + 4.36 * Mn + 0.44 * Si + 1.71 * Ni +
+                  3.33 * Cr + 5.19 * np.sqrt(Mo))
 
 
 def BC(**comp):
@@ -58,7 +60,8 @@ def BC(**comp):
     Ni = comp.get('Ni', 0)
     Cr = comp.get('Cr', 0)
     Mo = comp.get('Mo', 0)
-    return np.exp(-10.23 + 10.18*C + 0.85*Mn + 0.55*Ni + 0.9*Cr + 0.36*Mo)
+    return np.exp(-10.23 + 10.18 * C + 0.85 * Mn + 0.55 * Ni + 0.9 * Cr +
+                  0.36 * Mo)
 
 
 def Ae1_Grange(**comp):
@@ -69,7 +72,7 @@ def Ae1_Grange(**comp):
     Si = comp.get('Si', 0)
     Ni = comp.get('Ni', 0)
     Cr = comp.get('Cr', 0)
-    return FahrenheitToCelsius(1333 - 25*Mn + 40*Si - 26*Ni + 42*Cr)
+    return FahrenheitToCelsius(1333 - 25 * Mn + 40 * Si - 26 * Ni + 42 * Cr)
 
 
 def Ae3_Grange(**comp):
@@ -81,7 +84,8 @@ def Ae3_Grange(**comp):
     Si = comp.get('Si', 0)
     Ni = comp.get('Ni', 0)
     Cr = comp.get('Cr', 0)
-    return FahrenheitToCelsius(1570 - 323*C - 25*Mn + 80*Si - 32*Ni - 3*Cr)
+    return FahrenheitToCelsius(1570 - 323 * C - 25 * Mn + 80 * Si - 32 * Ni -
+                               3 * Cr)
 
 
 def Ae1_Andrews(**comp):
@@ -95,7 +99,7 @@ def Ae1_Andrews(**comp):
     Mo = comp.get('Mo', 0)
     W = comp.get('W', 0)
     As = comp.get('As', 0)
-    return 723 - 16.9*Ni + 29.1*Si + 6.38*W - 10.7*Mn + 16.9*Cr + 290*As
+    return 723 - 16.9 * Ni + 29.1 * Si + 6.38 * W - 10.7 * Mn + 16.9 * Cr + 290 * As
 
 
 def Ae3_Andrews(**comp):
@@ -128,7 +132,7 @@ def Bs_Li(**comp):
     Ni = comp.get('Ni', 0)
     Cr = comp.get('Cr', 0)
     Mo = comp.get('Mo', 0)
-    return 637 - 58*C - 35*Mn - 15*Ni - 34*Cr - 41*Mo
+    return 637 - 58 * C - 35 * Mn - 15 * Ni - 34 * Cr - 41 * Mo
 
 
 def Bs_VanBohemen(**comp):
@@ -142,7 +146,8 @@ def Bs_VanBohemen(**comp):
     Ni = comp.get('Ni', 0)
     Cr = comp.get('Cr', 0)
     Mo = comp.get('Mo', 0)
-    return 839 - (86*Mn + 23*Si + 67*Cr + 33*Ni + 75*Mo) - 270*(1 - np.exp(-1.33*C))
+    return 839 - (86 * Mn + 23 * Si + 67 * Cr + 33 * Ni +
+                  75 * Mo) - 270 * (1 - np.exp(-1.33 * C))
 
 
 def Ms_Andrews(**comp):
@@ -156,7 +161,7 @@ def Ms_Andrews(**comp):
     Cr = comp.get('Cr', 0)
     Mo = comp.get('Mo', 0)
     Co = comp.get('Co', 0)
-    return 539 - 423*C - 30.4*Mn - 17.7*Ni - 12.1*Cr - 7.5*Mo + 10*Co - 7.5*Si
+    return 539 - 423 * C - 30.4 * Mn - 17.7 * Ni - 12.1 * Cr - 7.5 * Mo + 10 * Co - 7.5 * Si
 
 
 def alpha_martensite_VanBohemen(**comp):
@@ -170,7 +175,10 @@ def alpha_martensite_VanBohemen(**comp):
     Ni = comp.get('Ni', 0)
     Cr = comp.get('Cr', 0)
     Mo = comp.get('Mo', 0)
-    return 1e-3*(27.2 - (0.14*Mn + 0.21*Si + 0.11*Cr + 0.08*Ni + 0.05*Mo) - 19.8*(1-np.exp(-1.56*C)))
+    return 1e-3 * (
+        27.2 -
+        (0.14 * Mn + 0.21 * Si + 0.11 * Cr + 0.08 * Ni + 0.05 * Mo) - 19.8 *
+        (1 - np.exp(-1.56 * C)))
 
 
 def Ms_VanBohemen(**comp):
@@ -184,7 +192,8 @@ def Ms_VanBohemen(**comp):
     Ni = comp.get('Ni', 0)
     Cr = comp.get('Cr', 0)
     Mo = comp.get('Mo', 0)
-    return 565 - (31*Mn + 13*Si + 10*Cr + 18*Ni + 12*Mo) - 600*(1-np.exp(-0.96*C))
+    return 565 - (31 * Mn + 13 * Si + 10 * Cr + 18 * Ni +
+                  12 * Mo) - 600 * (1 - np.exp(-0.96 * C))
 
 
 def Hv_martensite(phi700, **comp):
@@ -197,7 +206,8 @@ def Hv_martensite(phi700, **comp):
     Si = comp.get('Si', 0)
     Ni = comp.get('Ni', 0)
     Cr = comp.get('Cr', 0)
-    return 127 + 949*C + 27*Si + 11*Mn + 8*Ni + 16*Cr + 21*np.log10(phi700*3600)
+    return 127 + 949 * C + 27 * Si + 11 * Mn + 8 * Ni + 16 * Cr + 21 * np.log10(
+        phi700 * 3600)
 
 
 def Hv_bainite(phi700, **comp):
@@ -235,7 +245,6 @@ class Alloy:
     """
     Alloy properties (composition in wt.% and prior austenite grain size)
     """
-
     def __init__(self, gs, **w):
         # Grain size
         self.gs = gs
@@ -267,7 +276,8 @@ class Alloy:
         # Hardness
         self.Hv_martensite = lambda phi700: Hv_martensite(phi700, **w)
         self.Hv_bainite = lambda phi700: Hv_bainite(phi700, **w)
-        self.Hv_ferrite_pearlite = lambda phi700: Hv_ferrite_pearlite(phi700, **w)
+        self.Hv_ferrite_pearlite = lambda phi700: Hv_ferrite_pearlite(
+            phi700, **w)
 
     def format_composition(self, vmin=0):
         fmt = []
@@ -296,13 +306,15 @@ class SigmoidalFunction(object):
         value of the function
         """
         if cls is SigmoidalFunction:
-            raise TypeError("Can't instantiate abstract class SigmoidalFunction")
+            raise TypeError(
+                "Can't instantiate abstract class SigmoidalFunction")
 
         # Check for compulsory subclass attributes
         for var in ['xmin', 'xmax', 'ymin', 'ymax', 'n']:
             if not hasattr(cls, var):
                 raise NotImplementedError(
-                    'Class {} lacks required `{}` class attribute'.format(cls, var))
+                    'Class {} lacks required `{}` class attribute'.format(
+                        cls, var))
 
         # This is were S(X) or I(X) is returned
         return cls.val(x)
@@ -349,7 +361,8 @@ class SigmoidalFunction(object):
 
         if ymin < cls.ymin or ymax > cls.ymax:
             print('Be careful! y value out of bounds [{:g}:{:g}]. '
-                  'Returned value is an extrapolation'.format(cls.ymin, cls.ymax))
+                  'Returned value is an extrapolation'.format(
+                      cls.ymin, cls.ymax))
 
         return splev(y, cls.tck_inv)
 
@@ -372,14 +385,13 @@ class S(SigmoidalFunction):
     xmax = 0.999
     ymin = 0.02638507
     ymax = 2.02537893
-
     """
     S(X) function calculated using numerical integration and
     spline interpolation
     """
     @staticmethod
     def f(x):
-        return 1./(x**(0.4*(1. - x))*(1. - x)**(0.4*x))
+        return 1. / (x**(0.4 * (1. - x)) * (1. - x)**(0.4 * x))
 
 
 class I(SigmoidalFunction):
@@ -395,7 +407,7 @@ class I(SigmoidalFunction):
 
     @staticmethod
     def f(x):
-        return 1./(x**(2.*(1. - x)/3.)*(1. - x)**(2.*x/3.))
+        return 1. / (x**(2. * (1. - x) / 3.) * (1. - x)**(2. * x / 3.))
 
 
 class PhaseTransformation(object):
@@ -403,7 +415,6 @@ class PhaseTransformation(object):
     Abstract class for calculating kinetics of diffusional phase
     transformations
     """
-
     def __init__(self, alloy):
         self.alloy = alloy
         self.initialize()
@@ -411,7 +422,8 @@ class PhaseTransformation(object):
         for var in ['comp_factor', 'Ts', 'Tf', 'Hv']:
             if not hasattr(self, var):
                 raise NotImplementedError(
-                    'Object {} lacks required `{}` attribute'.format(self, var))
+                    'Object {} lacks required `{}` attribute'.format(
+                        self, var))
 
     @classmethod
     def __init_subclass__(cls):
@@ -419,7 +431,8 @@ class PhaseTransformation(object):
         for var in ['Q', 'n1', 'n2']:
             if not hasattr(cls, var):
                 raise NotImplementedError(
-                    'Class {} lacks required `{}` class attribute'.format(cls, var))
+                    'Class {} lacks required `{}` class attribute'.format(
+                        cls, var))
 
     @abstractmethod
     def initialize(self):
@@ -439,7 +452,10 @@ class PhaseTransformation(object):
         F : float or iterable
             Transformation factor with same shape as T
         """
-        return self.comp_factor/(2**(self.n1*self.alloy.gs)*(self.Ts - T)**self.n2*np.exp(-self.Q/(R*(T + K))))
+        return self.comp_factor / (2**(self.n1 * self.alloy.gs) *
+                                   (self.Ts - T)**self.n2 * np.exp(-self.Q /
+                                                                   (R *
+                                                                    (T + K))))
 
     def get_transformation_time(self, T, f):
         """
@@ -459,9 +475,14 @@ class PhaseTransformation(object):
         t : float or iterable
             Transformation time with same shape as T
         """
-        return S(f)*self.get_transformation_factor(T)
+        return S(f) * self.get_transformation_factor(T)
 
-    def get_transformation_temperature(self, Tini, Tfin, cooling_rate, f, dT=1.0):
+    def get_transformation_temperature(self,
+                                       Tini,
+                                       Tfin,
+                                       cooling_rate,
+                                       f,
+                                       dT=1.0):
         """
         Calculates the temperature for the material to transform to a
         fraction f during the cooling from Tini to Tfin at a cooling rate
@@ -484,16 +505,19 @@ class PhaseTransformation(object):
         T : float or iterable
             Transformation temperature with same shape as cooling_rate
         """
-        dt = dT/np.array(cooling_rate)
+        dt = dT / np.array(cooling_rate)
         nt = len(dt) if hasattr(dt, '__len__') else 1
         T = np.arange(Tini, Tfin, -dT)
         nucleation_time = np.full((nt, len(T)), 0, dtype=float)
 
         filtr = T < self.Ts
-        nucleation_time[:, filtr] = np.outer(dt, 1./self.get_transformation_factor(T[filtr]))
+        nucleation_time[:, filtr] = np.outer(
+            dt, 1. / self.get_transformation_factor(T[filtr]))
         nucleation_time = nucleation_time.cumsum(axis=1)
 
-        Tt = np.full(nt, np.nan, dtype=float)  # Transformation temperature for a given fraction f
+        Tt = np.full(
+            nt, np.nan,
+            dtype=float)  # Transformation temperature for a given fraction f
 
         # Check for indices of nucleation_time larger than threshold S(f)
         # First occurrence is the transformation temperature
@@ -528,7 +552,8 @@ class PhaseTransformation(object):
         """
         if len(t) > 3:
             # Fits T(t) by spline
-            def t2T(t_): return splev(t_, splrep(t, T))
+            def t2T(t_):
+                return splev(t_, splrep(t, T))
         else:
             # Uses linear interpolator
             t2T = interp1d(t, T)
@@ -536,7 +561,7 @@ class PhaseTransformation(object):
         # To ensure convergence of the algorithm, the T(t) thermal cycle is
         # adjusted by a spline and the nucleation time is calculated by
         # increments dt = (max(t) - min(t))/n
-        dt = (max(t) - min(t))/(n - 1)
+        dt = (max(t) - min(t)) / (n - 1)
         t = np.linspace(min(t), max(t), n)
         T = t2T(t)
         nucleation_time = np.full(t.shape, 0, dtype=float)
@@ -546,11 +571,13 @@ class PhaseTransformation(object):
         # start temperature and higher than Tf
         filtr = (T < self.Ts) & (T > self.Tf)
         if np.any(filtr):
-            nucleation_time[filtr] = dt/self.get_transformation_factor(T[filtr])
+            nucleation_time[filtr] = dt / self.get_transformation_factor(
+                T[filtr])
             nucleation_time = nucleation_time.cumsum()
             if T[0] < self.Ts:
                 # This is the factor corresponding to the transformed fraction at t[0]
-                nucleation_time += min(t)/self.get_transformation_factor(T[0])
+                nucleation_time += min(t) / self.get_transformation_factor(
+                    T[0])
 
             # New filter: calculates f only for nucleation_time inside the bounds
             # of S.inv(y)
@@ -567,7 +594,7 @@ class Ferrite(PhaseTransformation):
     """
     Austenite to ferrite phase transformation
     """
-    Q = 27500*4.184  # activation energy
+    Q = 27500 * 4.184  # activation energy
     n1 = 0.41  # exponential factor 1
     n2 = 3  # exponential factor 2
 
@@ -582,7 +609,7 @@ class Pearlite(PhaseTransformation):
     """
     Austenite to pearlite phase transformation
     """
-    Q = 27500*4.184  # activation energy
+    Q = 27500 * 4.184  # activation energy
     n1 = 0.32  # exponential factor 1
     n2 = 3  # exponential factor 2
 
@@ -597,7 +624,7 @@ class Bainite(PhaseTransformation):
     """
     Austenite to bainite phase transformation
     """
-    Q = 27500*4.184  # activation energy
+    Q = 27500 * 4.184  # activation energy
     n1 = 0.29  # exponential factor 1
     n2 = 2  # exponential factor 2
 
@@ -612,7 +639,6 @@ class Martensite:
     """
     Athermal austenite to martensite transformation
     """
-
     def __init__(self, alloy):
         self.alloy = alloy
         self.Ts = self.alloy.Ms
@@ -642,7 +668,8 @@ class Martensite:
         """
         if len(t) > 3:
             # Fits T(t) by spline
-            def t2T(t_): return splev(t_, splrep(t, T))
+            def t2T(t_):
+                return splev(t_, splrep(t, T))
         else:
             # Uses linear interpolator
             t2T = interp1d(t, T)
@@ -653,7 +680,8 @@ class Martensite:
 
         filtr = T < self.alloy.Ms
         if np.any(filtr):
-            f[filtr] = 1 - np.exp(-self.alloy.alpha_martensite*(self.alloy.Ms - T[filtr]))
+            f[filtr] = 1 - np.exp(-self.alloy.alpha_martensite *
+                                  (self.alloy.Ms - T[filtr]))
         return t, T, f
 
 
@@ -662,11 +690,18 @@ class TransformationDiagrams:
     Transformation diagrams class
     """
 
-    colors_dict = dict(ferrite='#1f77b4', pearlite='#ff7f0e', bainite='#2ca02c',
-                       martensite='#d62728', austenite='#9467bd')
-    columns_label_dict = dict(t='Time (s)', T=u'Temperature (°C)',
-                              ferrite='Ferrite', pearlite='Pearlite', bainite='Bainite',
-                              martensite='Martensite', austenite='Austenite')
+    colors_dict = dict(ferrite='#1f77b4',
+                       pearlite='#ff7f0e',
+                       bainite='#2ca02c',
+                       martensite='#d62728',
+                       austenite='#9467bd')
+    columns_label_dict = dict(t='Time (s)',
+                              T=u'Temperature (°C)',
+                              ferrite='Ferrite',
+                              pearlite='Pearlite',
+                              bainite='Bainite',
+                              martensite='Martensite',
+                              austenite='Austenite')
 
     def __init__(self, alloy):
         self.alloy = alloy
@@ -716,8 +751,10 @@ class TransformationDiagrams:
         f_bain_inc[1:] = np.diff(f_bain)
         f_mart_inc[1:] = np.diff(f_mart)
 
-        f = pd.DataFrame(columns=['t', 'T', 'ferrite', 'pearlite',
-                                  'bainite', 'martensite', 'austenite'])
+        f = pd.DataFrame(columns=[
+            't', 'T', 'ferrite', 'pearlite', 'bainite', 'martensite',
+            'austenite'
+        ])
         f['t'] = t
         f['T'] = T
         f.fillna(0, inplace=True)
@@ -725,30 +762,44 @@ class TransformationDiagrams:
         f.loc[0, 'pearlite'] = f_pear[0]
         f.loc[0, 'bainite'] = f_bain[0]
         f.loc[0, 'martensite'] = f_mart[0]
-        f.loc[0, 'austenite'] = 1. - f_ferr[0] - f_pear[0] - f_bain[0] - f_mart[0]
+        f.loc[0,
+              'austenite'] = 1. - f_ferr[0] - f_pear[0] - f_bain[0] - f_mart[0]
 
         def f1(i, x, y, z, w):
             if f_ferr[i] < 1:
-                return f.loc[i-1, 'ferrite'] + f_ferr_inc[i]*(1 - x - y - z - w)/(1 - f_ferr[i]) - x
+                return f.loc[i - 1, 'ferrite'] + f_ferr_inc[i] * (
+                    1 - x - y - z - w) / (1 - f_ferr[i]) - x
             else:
-                return f.loc[i-1, 'ferrite'] + f_ferr_inc[i]*(1 - y - z - w) - x
+                return f.loc[i - 1,
+                             'ferrite'] + f_ferr_inc[i] * (1 - y - z - w) - x
 
         def f2(i, x, y, z, w):
             if f_pear[i] < 1:
-                return f.loc[i-1, 'pearlite'] + f_pear_inc[i]*(1 - x - y - z - w)/(1 - f_pear[i]) - y
+                return f.loc[i - 1, 'pearlite'] + f_pear_inc[i] * (
+                    1 - x - y - z - w) / (1 - f_pear[i]) - y
             else:
-                return f.loc[i-1, 'pearlite'] + f_pear_inc[i]*(1 - x - z - w) - y
+                return f.loc[i - 1,
+                             'pearlite'] + f_pear_inc[i] * (1 - x - z - w) - y
 
-        def f3(i, x, y, z, w): return f.loc[i-1, 'bainite'] + f_bain_inc[i]*(1 - x - y - w) - z
+        def f3(i, x, y, z, w):
+            return f.loc[i - 1,
+                         'bainite'] + f_bain_inc[i] * (1 - x - y - w) - z
 
-        def f4(i, x, y, z, w): return f.loc[i-1, 'martensite'] + f_mart_inc[i]*(1 - x - y - z) - w
+        def f4(i, x, y, z, w):
+            return f.loc[i - 1,
+                         'martensite'] + f_mart_inc[i] * (1 - x - y - z) - w
 
         for i in range(len(f))[1:]:
-            x0 = [f.loc[i-1, 'ferrite'], f.loc[i-1, 'pearlite'],
-                  f.loc[i-1, 'bainite'], f.loc[i-1, 'martensite']]
+            x0 = [
+                f.loc[i - 1, 'ferrite'], f.loc[i - 1, 'pearlite'],
+                f.loc[i - 1, 'bainite'], f.loc[i - 1, 'martensite']
+            ]
 
             # Solves system of non-linear equations to get corrected phase fractions
-            res = root(lambda x: [f1(i, *x), f2(i, *x), f3(i, *x), f4(i, *x)], x0=x0)
+            res = root(lambda x: [f1(
+                i, *x), f2(i, *x), f3(i, *x),
+                                  f4(i, *x)],
+                       x0=x0)
 
             f.loc[i, 'ferrite'] = res.x[0]
             f.loc[i, 'pearlite'] = res.x[1]
@@ -761,7 +812,7 @@ class TransformationDiagrams:
         try:
             T2t = interp1d(T, t)
             # Gets cooling rate at 700 oC
-            phi700 = 2./(T2t(699.) - T2t(701.))
+            phi700 = 2. / (T2t(699.) - T2t(701.))
             if phi700 == 0:
                 phi700 = None
         except ValueError:
@@ -801,7 +852,8 @@ class TransformationDiagrams:
 
         if len(t) > 3:
             # Fits T(t) by spline
-            def t2T(t_): return splev(t_, splrep(t, T))
+            def t2T(t_):
+                return splev(t_, splrep(t, T))
         else:
             # Uses linear interpolator
             t2T = interp1d(t, T)
@@ -846,37 +898,70 @@ class TransformationDiagrams:
         T = np.arange(self.alloy.Bs, self.alloy.Ae3)
         ts = self.ferrite.get_transformation_time(T, fs)  # start
         tf = self.ferrite.get_transformation_time(T, ff)  # finish
-        ax.plot(ts, T, color=self.colors_dict['ferrite'],
-                label='Ferrite {:g}%'.format(100*fs), **kwargs)
-        ax.plot(tf, T, color=self.colors_dict['ferrite'], ls='--',
-                label='Ferrite {:g}%'.format(100*ff), **kwargs)
-        df_ferrite = pd.DataFrame(dict(T_ferrite=T, ts_ferrite=ts, tf_ferrite=tf))
+        ax.plot(ts,
+                T,
+                color=self.colors_dict['ferrite'],
+                label='Ferrite {:g}%'.format(100 * fs),
+                **kwargs)
+        ax.plot(tf,
+                T,
+                color=self.colors_dict['ferrite'],
+                ls='--',
+                label='Ferrite {:g}%'.format(100 * ff),
+                **kwargs)
+        df_ferrite = pd.DataFrame(
+            dict(T_ferrite=T, ts_ferrite=ts, tf_ferrite=tf))
 
         # Pearlite
         T = np.arange(self.alloy.Bs, self.alloy.Ae1)
         ts = self.pearlite.get_transformation_time(T, fs)
         tf = self.pearlite.get_transformation_time(T, ff)
-        ax.plot(ts, T, color=self.colors_dict['pearlite'],
-                label='Pearlite {:g}%'.format(100*fs), **kwargs)
-        ax.plot(tf, T, color=self.colors_dict['pearlite'], ls='--',
-                label='Pearlite {:g}%'.format(100*ff), **kwargs)
-        df_pearlite = pd.DataFrame(dict(T_pearlite=T, ts_pearlite=ts, tf_pearlite=tf))
+        ax.plot(ts,
+                T,
+                color=self.colors_dict['pearlite'],
+                label='Pearlite {:g}%'.format(100 * fs),
+                **kwargs)
+        ax.plot(tf,
+                T,
+                color=self.colors_dict['pearlite'],
+                ls='--',
+                label='Pearlite {:g}%'.format(100 * ff),
+                **kwargs)
+        df_pearlite = pd.DataFrame(
+            dict(T_pearlite=T, ts_pearlite=ts, tf_pearlite=tf))
 
         # Bainite
         T = np.arange(self.alloy.Ms, self.alloy.Bs)
         ts = self.bainite.get_transformation_time(T, fs)
         tf = self.bainite.get_transformation_time(T, ff)
-        ax.plot(ts, T, color=self.colors_dict['bainite'],
-                label='Bainite {:g}%'.format(100*fs), **kwargs)
-        ax.plot(tf, T, color=self.colors_dict['bainite'], ls='--',
-                label='Bainite {:g}%'.format(100*ff), **kwargs)
-        df_bainite = pd.DataFrame(dict(T_bainite=T, ts_bainite=ts, tf_bainite=tf))
-
+        ax.plot(ts,
+                T,
+                color=self.colors_dict['bainite'],
+                label='Bainite {:g}%'.format(100 * fs),
+                **kwargs)
+        ax.plot(tf,
+                T,
+                color=self.colors_dict['bainite'],
+                ls='--',
+                label='Bainite {:g}%'.format(100 * ff),
+                **kwargs)
+        df_bainite = pd.DataFrame(
+            dict(T_bainite=T, ts_bainite=ts, tf_bainite=tf))
+        
+        self.df_ferrite=df_ferrite
+        self.df_perlite = df_pearlite
+        self.df_bainite = df_bainite
         self.df_TTT = pd.concat([df_ferrite, df_pearlite, df_bainite], axis=1)
 
         # Draws Ae1 and Ae3 lines
-        ax.axhline(self.alloy.Ae3, xmax=.1, color=self.colors_dict['ferrite'], ls=':')
-        ax.axhline(self.alloy.Ae1, xmax=.1, color=self.colors_dict['pearlite'], ls=':')
+        ax.axhline(self.alloy.Ae3,
+                   xmax=.1,
+                   color=self.colors_dict['ferrite'],
+                   ls=':')
+        ax.axhline(self.alloy.Ae1,
+                   xmax=.1,
+                   color=self.colors_dict['pearlite'],
+                   ls=':')
 
         # Draws Bs and Ms lines
         ax.axhline(self.alloy.Bs, color=self.colors_dict['bainite'], ls=':')
@@ -888,21 +973,45 @@ class TransformationDiagrams:
         ax.set_title(self.alloy.format_composition())
 
         xmin = ax.get_xlim()[0]
-        ax.text(xmin*1.5, self.alloy.Ae3, 'Ae3',
-                color=self.colors_dict['ferrite'], ha='left', va='bottom')
-        ax.text(xmin*1.5, self.alloy.Ae1, 'Ae1',
-                color=self.colors_dict['pearlite'], ha='left', va='bottom')
-        ax.text(xmin*1.5, self.alloy.Bs, 'Bs',
-                color=self.colors_dict['bainite'], ha='left', va='bottom')
-        ax.text(xmin*1.5, self.alloy.Ms, 'Ms',
-                color=self.colors_dict['martensite'], ha='left', va='bottom')
+        ax.text(xmin * 1.5,
+                self.alloy.Ae3,
+                'Ae3',
+                color=self.colors_dict['ferrite'],
+                ha='left',
+                va='bottom')
+        ax.text(xmin * 1.5,
+                self.alloy.Ae1,
+                'Ae1',
+                color=self.colors_dict['pearlite'],
+                ha='left',
+                va='bottom')
+        ax.text(xmin * 1.5,
+                self.alloy.Bs,
+                'Bs',
+                color=self.colors_dict['bainite'],
+                ha='left',
+                va='bottom')
+        ax.text(xmin * 1.5,
+                self.alloy.Ms,
+                'Ms',
+                color=self.colors_dict['martensite'],
+                ha='left',
+                va='bottom')
 
         ax.legend(loc='upper center', ncol=3, bbox_to_anchor=(0.5, -.15))
         fig.subplots_adjust(bottom=.2)
 
         return ax
 
-    def CCT(self, Tini=900, fs=1e-2, ff=.99, phi_min=1e-4, phi_max=1e4, phi_steps=420, ax=None, **kwargs):
+    def CCT(self,
+            Tini=900,
+            fs=1e-2,
+            ff=.99,
+            phi_min=1e-4,
+            phi_max=1e4,
+            phi_steps=420,
+            ax=None,
+            **kwargs):
         """
         Plot CCT diagram
 
@@ -930,7 +1039,8 @@ class TransformationDiagrams:
         else:
             fig = ax.get_figure()
 
-        cooling_rates = 10**np.linspace(np.log10(phi_min), np.log10(phi_max), phi_steps)
+        cooling_rates = 10**np.linspace(np.log10(phi_min), np.log10(phi_max),
+                                        phi_steps)
         draw_cooling = kwargs.get('draw_cooling', True)
 
         # Ferrite
@@ -938,29 +1048,60 @@ class TransformationDiagrams:
             Tini, self.alloy.Bs, cooling_rates, fs)  # start
         Tf = self.ferrite.get_transformation_temperature(
             Tini, self.alloy.Bs, cooling_rates, ff)  # finish
-        ax.plot(Ts/cooling_rates, Ts,
-                color=self.colors_dict['ferrite'], label='Ferrite {:g}%'.format(100*fs), **kwargs)
-        ax.plot(Tf/cooling_rates, Tf, color=self.colors_dict['ferrite'],
-                ls='--', label='Ferrite {:g}%'.format(100*ff), **kwargs)
+        ax.plot(Ts / cooling_rates,
+                Ts,
+                color=self.colors_dict['ferrite'],
+                label='Ferrite {:g}%'.format(100 * fs),
+                **kwargs)
+        ax.plot(Tf / cooling_rates,
+                Tf,
+                color=self.colors_dict['ferrite'],
+                ls='--',
+                label='Ferrite {:g}%'.format(100 * ff),
+                **kwargs)
 
         # Pearlite
-        Ts = self.pearlite.get_transformation_temperature(Tini, self.alloy.Bs, cooling_rates, fs)
-        Tf = self.pearlite.get_transformation_temperature(Tini, self.alloy.Bs, cooling_rates, ff)
-        ax.plot(Ts/cooling_rates, Ts, color=self.colors_dict['pearlite'],
-                label='Pearlite {:g}%'.format(100*fs), **kwargs)
-        ax.plot(Tf/cooling_rates, Tf, color=self.colors_dict['pearlite'],
-                ls='--', label='Pearlite {:g}%'.format(100*ff), **kwargs)
+        Ts = self.pearlite.get_transformation_temperature(
+            Tini, self.alloy.Bs, cooling_rates, fs)
+        Tf = self.pearlite.get_transformation_temperature(
+            Tini, self.alloy.Bs, cooling_rates, ff)
+        ax.plot(Ts / cooling_rates,
+                Ts,
+                color=self.colors_dict['pearlite'],
+                label='Pearlite {:g}%'.format(100 * fs),
+                **kwargs)
+        ax.plot(Tf / cooling_rates,
+                Tf,
+                color=self.colors_dict['pearlite'],
+                ls='--',
+                label='Pearlite {:g}%'.format(100 * ff),
+                **kwargs)
 
         # Bainite
-        Ts = self.bainite.get_transformation_temperature(Tini, self.alloy.Ms, cooling_rates, fs)
-        Tf = self.bainite.get_transformation_temperature(Tini, self.alloy.Ms, cooling_rates, ff)
-        ax.plot(Ts/cooling_rates, Ts,
-                color=self.colors_dict['bainite'], label='Bainite {:g}%'.format(100*fs), **kwargs)
-        ax.plot(Tf/cooling_rates, Tf, color=self.colors_dict['bainite'],
-                ls='--', label='Bainite {:g}%'.format(100*ff), **kwargs)
+        Ts = self.bainite.get_transformation_temperature(
+            Tini, self.alloy.Ms, cooling_rates, fs)
+        Tf = self.bainite.get_transformation_temperature(
+            Tini, self.alloy.Ms, cooling_rates, ff)
+        ax.plot(Ts / cooling_rates,
+                Ts,
+                color=self.colors_dict['bainite'],
+                label='Bainite {:g}%'.format(100 * fs),
+                **kwargs)
+        ax.plot(Tf / cooling_rates,
+                Tf,
+                color=self.colors_dict['bainite'],
+                ls='--',
+                label='Bainite {:g}%'.format(100 * ff),
+                **kwargs)
 
-        ax.axhline(self.alloy.Ae3, xmax=.1, color=self.colors_dict['ferrite'], ls=':')
-        ax.axhline(self.alloy.Ae1, xmax=.1, color=self.colors_dict['pearlite'], ls=':')
+        ax.axhline(self.alloy.Ae3,
+                   xmax=.1,
+                   color=self.colors_dict['ferrite'],
+                   ls=':')
+        ax.axhline(self.alloy.Ae1,
+                   xmax=.1,
+                   color=self.colors_dict['pearlite'],
+                   ls=':')
 
         ax.axhline(self.alloy.Bs, color=self.colors_dict['bainite'], ls=':')
         ax.axhline(self.alloy.Ms, color=self.colors_dict['martensite'])
@@ -969,7 +1110,7 @@ class TransformationDiagrams:
         if draw_cooling:
             for cooling_rate in cooling_rates[::10]:
                 T = np.linspace(Tini, 25, 100)
-                t = (Tini - T)/cooling_rate
+                t = (Tini - T) / cooling_rate
                 kw = dict(lw=.5)
                 kw.update(kwargs)
                 ax.plot(t, T, 'k:', **kw)
@@ -980,14 +1121,30 @@ class TransformationDiagrams:
         ax.set_title(self.alloy.format_composition())
 
         xmin = ax.get_xlim()[0]
-        ax.text(xmin*1.5, self.alloy.Ae3, 'Ae3',
-                color=self.colors_dict['ferrite'], ha='left', va='bottom')
-        ax.text(xmin*1.5, self.alloy.Ae1, 'Ae1',
-                color=self.colors_dict['pearlite'], ha='left', va='bottom')
-        ax.text(xmin*1.5, self.alloy.Bs, 'Bs',
-                color=self.colors_dict['bainite'], ha='left', va='bottom')
-        ax.text(xmin*1.5, self.alloy.Ms, 'Ms',
-                color=self.colors_dict['martensite'], ha='left', va='bottom')
+        ax.text(xmin * 1.5,
+                self.alloy.Ae3,
+                'Ae3',
+                color=self.colors_dict['ferrite'],
+                ha='left',
+                va='bottom')
+        ax.text(xmin * 1.5,
+                self.alloy.Ae1,
+                'Ae1',
+                color=self.colors_dict['pearlite'],
+                ha='left',
+                va='bottom')
+        ax.text(xmin * 1.5,
+                self.alloy.Bs,
+                'Bs',
+                color=self.colors_dict['bainite'],
+                ha='left',
+                va='bottom')
+        ax.text(xmin * 1.5,
+                self.alloy.Ms,
+                'Ms',
+                color=self.colors_dict['martensite'],
+                ha='left',
+                va='bottom')
 
         ax.legend(loc='upper center', ncol=3, bbox_to_anchor=(0.5, -.15))
         fig.subplots_adjust(bottom=.2)
@@ -1029,7 +1186,8 @@ class TransformationDiagrams:
 
         if len(t) > 3:
             # Fits T(t) by spline
-            def t2T(t_): return splev(t_, splrep(t, T))
+            def t2T(t_):
+                return splev(t_, splrep(t, T))
         else:
             # Uses linear interpolator
             t2T = interp1d(t, T)
@@ -1039,16 +1197,30 @@ class TransformationDiagrams:
 
         f = self.get_transformed_fraction(t, T, n)
         if f['ferrite'].max() > 0:
-            ax.plot(f[xaxis], f['ferrite'], color=self.colors_dict['ferrite'], label='Ferrite')
+            ax.plot(f[xaxis],
+                    f['ferrite'],
+                    color=self.colors_dict['ferrite'],
+                    label='Ferrite')
         if f['pearlite'].max() > 0:
-            ax.plot(f[xaxis], f['pearlite'], color=self.colors_dict['pearlite'], label='Pearlite')
+            ax.plot(f[xaxis],
+                    f['pearlite'],
+                    color=self.colors_dict['pearlite'],
+                    label='Pearlite')
         if f['bainite'].max() > 0:
-            ax.plot(f[xaxis], f['bainite'], color=self.colors_dict['bainite'], label='Bainite')
+            ax.plot(f[xaxis],
+                    f['bainite'],
+                    color=self.colors_dict['bainite'],
+                    label='Bainite')
         if f['martensite'].max() > 0:
-            ax.plot(f[xaxis], f['martensite'],
-                    color=self.colors_dict['martensite'], label='Martensite')
+            ax.plot(f[xaxis],
+                    f['martensite'],
+                    color=self.colors_dict['martensite'],
+                    label='Martensite')
         if f['austenite'].max() > 0:
-            ax.plot(f[xaxis], f['austenite'], color=self.colors_dict['austenite'], label='Austenite')
+            ax.plot(f[xaxis],
+                    f['austenite'],
+                    color=self.colors_dict['austenite'],
+                    label='Austenite')
 
         if not np.isnan(f.iloc[-1]['Hv']):
             T_ref = 25
@@ -1057,9 +1229,15 @@ class TransformationDiagrams:
             except ValueError:
                 T_ref, Hv_ref = f.iloc[-1]['T'], f.iloc[-1]['Hv']
 
-            ax.text(.95, .95, u'Hardness for phase fractions at {:.1f} °C: {:.0f} HV'.format(T_ref, Hv_ref),
-                    transform=ax.transAxes, ha='right', va='top',
-                    bbox=dict(facecolor='white', alpha=0.7, edgecolor='none'))
+            ax.text(
+                .95,
+                .95,
+                u'Hardness for phase fractions at {:.1f} °C: {:.0f} HV'.format(
+                    T_ref, Hv_ref),
+                transform=ax.transAxes,
+                ha='right',
+                va='top',
+                bbox=dict(facecolor='white', alpha=0.7, edgecolor='none'))
 
         ax.set_xlabel(self.columns_label_dict[xaxis])
         ax.set_ylabel('Phase fraction')
